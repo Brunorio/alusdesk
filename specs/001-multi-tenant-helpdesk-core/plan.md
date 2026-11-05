@@ -70,3 +70,4 @@ alusdesk/
     │   ├── capture.rs                            # Desktop screen capture via xcap
     │   └── input.rs                              # Keyboard/mouse synthesis via enigo
 ```
+

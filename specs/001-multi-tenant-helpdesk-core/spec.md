@@ -135,3 +135,4 @@ As an Agent or Requester, I want to resolve the ticket, collect a mandatory 1-to
 - **SC-004 (License Enforcement)**: 100% of ticket requests exceeding client company concurrent capacity are blocked before queue insertion.
 - **SC-005 (Safety Compliance)**: 100% of remote control sessions require explicit affirmative consent and cease immediately when the kill-switch is triggered.
 - **SC-006 (Test Coverage)**: 100% test pass rate across all domain entities, validation rules, and use-case integration tests.
+

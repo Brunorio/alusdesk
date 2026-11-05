@@ -44,3 +44,4 @@
 ### Decision 5: Omnichannel Media Storage & Delivery
 - **Decision**: In-browser recording via Web MediaStream Recording API (WebM/Opus for audio, WebM/VP8/VP9 for screen video). Media is streamed to S3-compatible storage (MinIO/AWS S3) and referenced via signed URL in `Message.mediaUrl`.
 - **Rationale**: Offloads binary blob storage from PostgreSQL while preserving metadata (`durationSec`, `width`, `height`, `sizeBytes`) in structured JSON columns.
+

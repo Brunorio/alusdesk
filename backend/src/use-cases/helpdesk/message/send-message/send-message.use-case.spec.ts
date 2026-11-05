@@ -33,12 +33,14 @@ describe('SendMessageUseCase Integration Tests', () => {
   });
 
   it('should persist multimedia message and broadcast to ticket room when ticket is active', async () => {
+    const validTicketId = 'c4f6a908-1111-4000-8000-000000000001';
     ticketRepositoryMock.findById.mockResolvedValue(
       new Ticket({
-        id: 'tck-123',
+        id: validTicketId,
+        organizationId: 'org-123',
         protocolNumber: 'TCK-20261105-0001',
         clientCompanyId: 'comp-123',
-        customerId: 'cust-456',
+        requesterId: 'req-456',
         queueId: 'queue-n1',
         status: TicketStatus.IN_PROGRESS,
         agentId: 'agent-789',
@@ -46,7 +48,7 @@ describe('SendMessageUseCase Integration Tests', () => {
     );
 
     const input = {
-      ticketId: 'tck-123',
+      ticketId: validTicketId,
       customerId: 'cust-456',
       type: MessageType.AUDIO,
       mediaUrl: 'https://storage.alusdesk.com/audio/voice-1.webm',
@@ -62,19 +64,21 @@ describe('SendMessageUseCase Integration Tests', () => {
   });
 
   it('should throw an error when attempting to send a message to a CLOSED ticket', async () => {
+    const validTicketId = 'c4f6a908-1111-4000-8000-000000000001';
     ticketRepositoryMock.findById.mockResolvedValue(
       new Ticket({
-        id: 'tck-123',
+        id: validTicketId,
+        organizationId: 'org-123',
         protocolNumber: 'TCK-20261105-0001',
         clientCompanyId: 'comp-123',
-        customerId: 'cust-456',
+        requesterId: 'req-456',
         queueId: 'queue-n1',
         status: TicketStatus.CLOSED,
       }),
     );
 
     const input = {
-      ticketId: 'tck-123',
+      ticketId: validTicketId,
       customerId: 'cust-456',
       type: MessageType.TEXT,
       content: 'Mensagem tardia',

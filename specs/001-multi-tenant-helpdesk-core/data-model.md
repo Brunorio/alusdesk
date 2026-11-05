@@ -115,3 +115,4 @@ erDiagram
 - `score`: number (integer between 1 and 5)
 - `feedback`: string (optional)
 - `createdAt`: DateTime
+

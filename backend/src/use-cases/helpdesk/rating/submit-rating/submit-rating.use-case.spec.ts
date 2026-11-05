@@ -34,11 +34,13 @@ describe('SubmitRatingUseCase Integration Tests', () => {
   });
 
   it('should submit rating and close the ticket permanently', async () => {
+    const validTicketId = 'c4f6a908-1111-4000-8000-000000000001';
     const ticket = new Ticket({
-      id: 'tck-123',
+      id: validTicketId,
+      organizationId: 'org-123',
       protocolNumber: 'TCK-20261105-0001',
       clientCompanyId: 'comp-123',
-      customerId: 'cust-456',
+      requesterId: 'req-456',
       queueId: 'queue-n1',
       agentId: 'agent-789',
       status: TicketStatus.RESOLVED,
@@ -48,7 +50,7 @@ describe('SubmitRatingUseCase Integration Tests', () => {
     ratingRepositoryMock.findByTicketId.mockResolvedValue(null);
 
     const input = {
-      ticketId: 'tck-123',
+      ticketId: validTicketId,
       customerId: 'cust-456',
       score: 5,
       feedback: 'Suporte excelente!',
@@ -65,12 +67,14 @@ describe('SubmitRatingUseCase Integration Tests', () => {
   });
 
   it('should throw an error when ticket has already been rated', async () => {
+    const validTicketId = 'c4f6a908-1111-4000-8000-000000000001';
     ticketRepositoryMock.findById.mockResolvedValue(
       new Ticket({
-        id: 'tck-123',
+        id: validTicketId,
+        organizationId: 'org-123',
         protocolNumber: 'TCK-20261105-0001',
         clientCompanyId: 'comp-123',
-        customerId: 'cust-456',
+        requesterId: 'req-456',
         queueId: 'queue-n1',
         agentId: 'agent-789',
         status: TicketStatus.RESOLVED,
@@ -80,7 +84,7 @@ describe('SubmitRatingUseCase Integration Tests', () => {
     ratingRepositoryMock.findByTicketId.mockResolvedValue({ id: 'existing-rating' } as any);
 
     const input = {
-      ticketId: 'tck-123',
+      ticketId: validTicketId,
       customerId: 'cust-456',
       score: 5,
     };
