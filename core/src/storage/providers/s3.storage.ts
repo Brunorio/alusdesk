@@ -27,3 +27,4 @@ export class S3Storage implements IStorage {
     return `https://${this.options.bucketName}.s3.amazonaws.com/${pathname}`;
   }
 }
+

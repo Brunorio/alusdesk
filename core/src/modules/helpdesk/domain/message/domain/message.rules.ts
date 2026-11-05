@@ -23,3 +23,4 @@ export class MessageRules extends EntityRules {
     Object.assign(this, data);
   }
 }
+

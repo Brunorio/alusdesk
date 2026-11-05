@@ -26,3 +26,4 @@ export class ClaimTicketUseCase implements IUseCase<ClaimTicketInput, TicketOutp
     return output;
   }
 }
+

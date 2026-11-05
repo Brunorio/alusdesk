@@ -25,3 +25,4 @@ export class CreateOrganizationUseCase implements IUseCase<CreateOrganizationInp
     return organization.getOutput();
   }
 }
+

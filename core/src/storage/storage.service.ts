@@ -50,3 +50,4 @@ export class StorageService implements IStorage {
     return `/storage/${pathname}`;
   }
 }
+

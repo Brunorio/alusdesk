@@ -26,3 +26,4 @@ export class EntityValidator {
     return this.notification;
   }
 }
+

@@ -12,3 +12,4 @@ module.exports = {
     '^@core/(.*)$': '<rootDir>/../../core/src/$1',
   },
 };
+

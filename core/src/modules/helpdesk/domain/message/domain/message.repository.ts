@@ -4,3 +4,4 @@ import { Message, MessageId } from './message';
 export interface IMessageRepository extends ISearchableRepository<Message, MessageId> {
   findByTicketId(ticketId: string): Promise<Message[]>;
 }
+

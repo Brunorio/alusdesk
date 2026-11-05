@@ -8,3 +8,4 @@ export interface ITicketRepository extends ISearchableRepository<Ticket, TicketI
   generateProtocolNumber(organizationId: string): Promise<string>;
   claimTicketAtomically(ticketId: TicketId, agentId: string): Promise<Ticket>;
 }
+

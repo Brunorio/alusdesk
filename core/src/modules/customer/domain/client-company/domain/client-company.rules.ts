@@ -27,3 +27,4 @@ export class ClientCompanyRules extends EntityRules {
     Object.assign(this, data);
   }
 }
+

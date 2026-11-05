@@ -58,3 +58,4 @@ export class SubmitRatingUseCase implements IUseCase<SubmitRatingInput, RatingOu
     return output;
   }
 }
+

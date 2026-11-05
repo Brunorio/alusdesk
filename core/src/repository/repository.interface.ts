@@ -24,3 +24,4 @@ export interface ISearchableRepository<
   EntityId extends ValueObject,
   SearchOutput = SearchResult<A>,
 > extends IRepository<A, EntityId, SearchOutput> {}
+

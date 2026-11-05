@@ -3,3 +3,4 @@ export default interface Output {
   createdAt?: Date;
   updatedAt?: Date;
 }
+

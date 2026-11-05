@@ -76,3 +76,4 @@ export class SearchParams<Filter = string> {
     this._filter = value === null || value === undefined || (value as any) === '' ? null : value;
   }
 }
+

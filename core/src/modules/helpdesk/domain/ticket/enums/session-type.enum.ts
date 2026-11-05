@@ -5,3 +5,4 @@ export enum SessionType {
   SCREEN_SHARE = 'SCREEN_SHARE',
   REMOTE_CONTROL = 'REMOTE_CONTROL',
 }
+

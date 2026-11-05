@@ -9,3 +9,4 @@ export default class EntityError extends Error {
     this.name = 'EntityError';
   }
 }
+

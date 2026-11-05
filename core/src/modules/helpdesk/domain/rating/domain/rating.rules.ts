@@ -28,3 +28,4 @@ export class RatingRules extends EntityRules {
     Object.assign(this, data);
   }
 }
+

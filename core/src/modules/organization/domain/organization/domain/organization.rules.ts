@@ -23,3 +23,4 @@ export class OrganizationRules extends EntityRules {
     Object.assign(this, data);
   }
 }
+

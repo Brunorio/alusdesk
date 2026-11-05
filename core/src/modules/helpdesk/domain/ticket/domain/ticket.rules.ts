@@ -39,3 +39,4 @@ export class TicketRules extends EntityRules {
     Object.assign(this, data);
   }
 }
+

@@ -10,3 +10,4 @@ export interface IStorage {
   delete(pathname: string): Promise<boolean>;
   getSignedUrl?(pathname: string, expiresInMinutes?: number): Promise<string>;
 }
+

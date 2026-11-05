@@ -6,3 +6,4 @@ export enum TicketStatus {
   CLOSED = 'CLOSED',
   CANCELLED = 'CANCELLED',
 }
+

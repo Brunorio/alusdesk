@@ -63,3 +63,4 @@ export class CreateTicketUseCase implements IUseCase<CreateTicketInput, TicketOu
     return output;
   }
 }
+

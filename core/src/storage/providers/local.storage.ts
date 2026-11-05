@@ -44,3 +44,4 @@ export class LocalStorage implements IStorage {
     return `/storage/${pathname}`;
   }
 }
+

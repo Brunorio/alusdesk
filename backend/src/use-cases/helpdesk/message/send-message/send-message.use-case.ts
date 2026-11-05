@@ -46,3 +46,4 @@ export class SendMessageUseCase implements IUseCase<SendMessageInput, MessageOut
     return output;
   }
 }
+

@@ -24,3 +24,4 @@ export class Uuid extends ValueObject {
     return this.id;
   }
 }
+

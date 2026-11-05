@@ -3,3 +3,4 @@ export default interface Input {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 }
+

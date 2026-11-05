@@ -44,3 +44,4 @@ export class SearchResult<E = Entity> {
     };
   }
 }
+

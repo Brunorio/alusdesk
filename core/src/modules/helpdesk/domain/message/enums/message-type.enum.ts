@@ -6,3 +6,4 @@ export enum MessageType {
   SCREEN_CAPTURE = 'SCREEN_CAPTURE',
   SYSTEM = 'SYSTEM',
 }
+
