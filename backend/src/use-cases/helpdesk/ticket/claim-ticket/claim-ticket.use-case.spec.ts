@@ -23,20 +23,23 @@ describe('ClaimTicketUseCase Integration Tests', () => {
   });
 
   it('should successfully claim a ticket waiting in queue', async () => {
+    const validTicketId = 'c4f6a908-1111-4000-8000-000000000001';
     const existingTicket = new Ticket({
-      id: 'tck-123',
+      id: validTicketId,
+      organizationId: 'org-123',
       protocolNumber: 'TCK-20261105-0001',
       clientCompanyId: 'comp-123',
-      customerId: 'cust-456',
+      requesterId: 'req-456',
       queueId: 'queue-n1',
       status: TicketStatus.WAITING_QUEUE,
     });
 
     const claimedTicket = new Ticket({
-      id: 'tck-123',
+      id: validTicketId,
+      organizationId: 'org-123',
       protocolNumber: 'TCK-20261105-0001',
       clientCompanyId: 'comp-123',
-      customerId: 'cust-456',
+      requesterId: 'req-456',
       queueId: 'queue-n1',
       agentId: 'agent-789',
       status: TicketStatus.IN_PROGRESS,
@@ -47,7 +50,7 @@ describe('ClaimTicketUseCase Integration Tests', () => {
     ticketRepositoryMock.claimTicketAtomically.mockResolvedValue(claimedTicket);
 
     const input = {
-      ticketId: 'tck-123',
+      ticketId: validTicketId,
       agentId: 'agent-789',
     };
 
@@ -65,7 +68,7 @@ describe('ClaimTicketUseCase Integration Tests', () => {
     );
 
     const input = {
-      ticketId: 'tck-123',
+      ticketId: 'c4f6a908-1111-4000-8000-000000000001',
       agentId: 'agent-999',
     };
 
