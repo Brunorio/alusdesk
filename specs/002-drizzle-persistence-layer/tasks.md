@@ -90,4 +90,4 @@
 ## Phase 8: Polish & Verification
 
 - [x] T024 Run full test suite pass verification (`npm run test --workspaces`).
-- [ ] T025 Run `speckit.analyze` consistency analysis.
+- [x] T025 Run `speckit.analyze` consistency analysis.

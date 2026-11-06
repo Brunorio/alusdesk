@@ -6,7 +6,7 @@
 
 ## 1. Summary
 
-The PostgreSQL persistence layer using **Drizzle ORM** has been implemented, tested, and integrated across `@alusdesk/core` and `@alusdesk/backend`. The architecture guarantees physical schema separation between the central Manager database and isolated tenant databases, enforces atomic queue claiming transactions, provides an automated SQL migration runner, and supports dynamic tenant connection pooling via `DrizzleDatabaseConnection` and `TenantConnectionRegistry`.
+The PostgreSQL persistence layer using **Drizzle ORM** has been implemented, tested, and integrated across `@alusdesk/core` and `@alusdesk/backend`. The architecture guarantees physical schema separation between the central Manager database (`organizations`, `users`) and isolated tenant databases (`client_companies`, `requesters`, `queues`, `tickets`, `messages`, `ratings`), enforces atomic queue claiming transactions, provides an automated SQL migration runner, and supports dynamic tenant connection pooling via `DrizzleDatabaseConnection` and `TenantConnectionRegistry`.
 
 ## 2. Test Execution & Coverage Summary
 
@@ -19,8 +19,8 @@ The PostgreSQL persistence layer using **Drizzle ORM** has been implemented, tes
 ## 3. Verified Artifacts
 
 ### Schemas & Migrations (`@alusdesk/core`)
-- Central Manager schema in `manager.schema.ts` (`organizations`).
-- Tenant schema in `tenant.schema.ts` (`users`, `client_companies`, `requesters`, `queues`, `tickets`, `messages`, `ratings`).
+- Central Manager schema in `manager.schema.ts` (`organizations`, `users`).
+- Tenant schema in `tenant.schema.ts` (`client_companies`, `requesters`, `queues`, `tickets`, `messages`, `ratings`).
 - Timestamped SQL migrations:
   - `core/migrations/manager/20261106000000-create-manager-organizations.sql`
   - `core/migrations/tenant/20261106000001-create-tenant-core-tables.sql`
@@ -28,8 +28,8 @@ The PostgreSQL persistence layer using **Drizzle ORM** has been implemented, tes
 
 ### Persistence Repositories & Mappers (`@alusdesk/core`)
 - `DrizzleOrganizationRepository` + `OrganizationModelMapper`
-- `DrizzleClientCompanyRepository` + `ClientCompanyModelMapper`
 - `DrizzleUserRepository` + `UserModelMapper`
+- `DrizzleClientCompanyRepository` + `ClientCompanyModelMapper`
 - `DrizzleQueueRepository` + `QueueModelMapper`
 - `DrizzleTicketRepository` + `TicketModelMapper` (with atomic concurrency lock on queue claims)
 - `DrizzleMessageRepository` + `MessageModelMapper`
@@ -41,5 +41,4 @@ The PostgreSQL persistence layer using **Drizzle ORM** has been implemented, tes
 - Request-scoped async isolation using `TenantConnectionContext` (`nestjs-cls`).
 
 ## 4. Conclusion
-Specification `002-drizzle-persistence-layer` is fully implemented and validated with 100% test passing rate.
-
+Specification `002-drizzle-persistence-layer` is 100% complete, verified with 77/77 passing tests, and ready to be merged/concluded.
