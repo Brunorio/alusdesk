@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { IUseCase } from '@core/use-cases/use-case.interface';
 import { IOrganizationRepository } from '@core/modules/organization/domain/organization/domain/organization.repository';
-import { Organization, OrganizationOutput } from '@core/modules/organization/domain/organization/domain/organization';
+import { Organization, OrganizationInput, OrganizationOutput } from '@core/modules/organization/domain/organization/domain/organization';
+import { ConnectionInput } from '@core/domain/value-object/connection.vo';
 
 export interface CreateOrganizationInput {
   name: string;
   documentNumber: string;
   maxConcurrentTickets: number;
+  connection?: ConnectionInput;
 }
 
 @Injectable()
