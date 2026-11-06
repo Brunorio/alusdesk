@@ -9,3 +9,4 @@ export class UpdateRequest<Input, Output> extends BaseRequest<Output> {
     });
   }
 }
+

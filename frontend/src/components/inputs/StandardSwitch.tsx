@@ -55,3 +55,4 @@ export const StandardSwitch = forwardRef<
 });
 
 StandardSwitch.displayName = 'StandardSwitch';
+

@@ -83,3 +83,4 @@ export abstract class BaseRequest<Output> {
     return data as Output;
   }
 }
+
