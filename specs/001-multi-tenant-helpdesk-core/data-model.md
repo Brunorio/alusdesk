@@ -40,6 +40,7 @@ erDiagram
 - `name`: string (min 2, max 255 chars)
 - `documentNumber`: string (unique fiscal identifier)
 - `maxConcurrentTickets`: number (contracted concurrent ticket capacity)
+- `connection`: `Connection` (Value Object: `host`, `port`, `database`, `username`, `password`, `schema`, `ssl`)
 - `isActive`: boolean (default `true`)
 - `createdAt`: DateTime
 - `updatedAt`: DateTime

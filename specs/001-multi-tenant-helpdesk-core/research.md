@@ -45,3 +45,9 @@
 - **Decision**: In-browser recording via Web MediaStream Recording API (WebM/Opus for audio, WebM/VP8/VP9 for screen video). Media is streamed to S3-compatible storage (MinIO/AWS S3) and referenced via signed URL in `Message.mediaUrl`.
 - **Rationale**: Offloads binary blob storage from PostgreSQL while preserving metadata (`durationSec`, `width`, `height`, `sizeBytes`) in structured JSON columns.
 
+---
+
+### Decision 6: Central Manager Database & Opaque Token Architecture
+- **Decision**: Adopt a central Manager database for platform-level management and tenant registration (`Organization`), where each organization maintains a `Connection` Value Object pointing to its tenant database. Authentication never exposes raw JWTs to the client; instead, an opaque UUID v4 is stored in Redis mapping to the signed JWT. On incoming requests, `TenantAuthMiddleware` exchanges the UUID for the JWT, extracts `organizationId`, resolves the tenant connection from the Manager DB, caches the pool in `TenantConnectionRegistry`, and binds it to the request lifecycle via `TenantConnectionContext` (`nestjs-cls`).
+- **Rationale**: Mitigates JWT interception/replay risks and guarantees strictly isolated multi-tenant routing without relying on brittle subdomain routing.
+

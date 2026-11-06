@@ -18,6 +18,9 @@ export class OrganizationRules extends EntityRules {
   @IsOptional()
   isActive: boolean;
 
+  @IsOptional()
+  connection?: any;
+
   constructor(data: any) {
     super();
     Object.assign(this, data);

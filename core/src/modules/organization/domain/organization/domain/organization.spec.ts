@@ -22,6 +22,25 @@ describe('Organization Domain Unit Tests', () => {
     expect(output.createdAt).toBeInstanceOf(Date);
   });
 
+  it('should create an Organization with connection configuration', () => {
+    const org = new Organization({
+      ...baseOrgInput,
+      connection: {
+        host: 'postgres-tenant.internal',
+        port: 5432,
+        database: 'org_techcorp_db',
+        username: 'techcorp_user',
+        password: 'secure_password_123',
+        schema: 'public',
+        ssl: true,
+      },
+    });
+
+    expect(org.getConnection()).toBeDefined();
+    expect(org.getConnection()?.database).toBe('org_techcorp_db');
+    expect(org.getOutput().connection?.host).toBe('postgres-tenant.internal');
+  });
+
   it('should allow processing tickets when active and below max concurrent capacity', () => {
     const org = new Organization({
       ...baseOrgInput,
