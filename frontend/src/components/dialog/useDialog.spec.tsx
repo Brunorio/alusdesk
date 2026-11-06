@@ -45,3 +45,4 @@ describe('useDialog and DialogProvider', () => {
     expect(screen.queryByText('Test Modal Title')).not.toBeInTheDocument();
   });
 });
+

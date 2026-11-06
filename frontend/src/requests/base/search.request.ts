@@ -43,3 +43,4 @@ export class SearchRequest<Output> extends BaseRequest<SearchResultProps<Output>
     });
   }
 }
+

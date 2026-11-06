@@ -39,3 +39,4 @@ describe('StandardInput Components', () => {
     expect(input.value).toBe('123.456.789-01');
   });
 });
+

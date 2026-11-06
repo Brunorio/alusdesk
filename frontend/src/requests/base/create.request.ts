@@ -9,3 +9,4 @@ export class CreateRequest<Input, Output> extends BaseRequest<Output> {
     });
   }
 }
+

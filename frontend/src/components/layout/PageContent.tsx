@@ -9,3 +9,4 @@ export interface PageContentProps {
 export const PageContent: React.FC<PageContentProps> = ({ children, className }) => {
   return <div className={cn('w-full flex flex-col gap-6', className)}>{children}</div>;
 };
+

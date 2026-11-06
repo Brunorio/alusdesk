@@ -31,3 +31,4 @@ export class LogoutRequest extends BaseRequest<void> {
     });
   }
 }
+

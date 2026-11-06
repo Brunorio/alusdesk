@@ -8,3 +8,4 @@ export class DeleteRequest<Output = void> extends BaseRequest<Output> {
     });
   }
 }
+
