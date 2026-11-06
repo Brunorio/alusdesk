@@ -63,3 +63,4 @@ export const CONFIG_STORAGE_SCHEMA: Joi.StrictSchemaMap<STORAGE_SCHEMA_TYPE> = {
   STORAGE_DRIVER: Joi.string().valid('local', 's3', 'gcp').default('local'),
   LOCAL_STORAGE_PATH: Joi.string().default('./storage'),
 };
+

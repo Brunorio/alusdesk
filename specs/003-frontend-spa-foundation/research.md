@@ -44,3 +44,4 @@
 ### Decision 5: Base Request Hierarchy & Opaque Token Authentication
 - **Decision**: Implement base request classes (`BaseRequest`, `GetRequest`, `SearchRequest`, `CreateRequest`, `UpdateRequest`, `DeleteRequest`) using native `fetch` or lightweight client that automatically injects `Authorization: Bearer <opaqueUuid>` and handles 401 token expiration.
 - **Rationale**: Enforces DDD request boundaries, prevents raw `fetch`/`axios` calls from leaking into view components, and aligns with the backend Redis opaque token pattern.
+

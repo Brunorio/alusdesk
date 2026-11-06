@@ -30,3 +30,4 @@ export class ConfigModule extends NestConfigModule {
     });
   }
 }
+

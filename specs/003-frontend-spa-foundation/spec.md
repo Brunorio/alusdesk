@@ -112,3 +112,4 @@ As a Support Staff member or Administrator, I want to log in using my email and 
 - **SC-002**: Zero raw `<table>` elements used for listings; 100% powered by `<ResponsiveData>`.
 - **SC-003**: Frontend builds cleanly with `npm run build -w @alusdesk/frontend` with zero TypeScript or Vite errors.
 - **SC-004**: End-to-end login flow successfully exchanges credentials for an opaque token and routes to protected dashboard.
+

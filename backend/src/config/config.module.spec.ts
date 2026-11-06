@@ -35,3 +35,4 @@ describe('Config Schema Validation Unit Tests', () => {
     expect(error).toBeDefined();
   });
 });
+

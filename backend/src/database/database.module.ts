@@ -34,3 +34,4 @@ import { DrizzleDatabaseConnection } from './drizzle-database.connection';
   exports: ['MANAGER_DB', 'IDatabaseConnection', DrizzleDatabaseConnection],
 })
 export class DatabaseModule {}
+
