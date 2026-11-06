@@ -10,7 +10,12 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces",
-    "test": "npm run test --workspaces"
+    "test": "npm run test --workspaces",
+    "dev:frontend": "npm run dev -w @alusdesk/frontend",
+    "build:frontend": "npm run build -w @alusdesk/frontend",
+    "dev:backend": "npm run start:dev -w @alusdesk/backend",
+    "build:backend": "npm run build -w @alusdesk/backend",
+    "build:core": "npm run build -w @alusdesk/core"
   },
   "devDependencies": {
     "typescript": "^5.4.5"
