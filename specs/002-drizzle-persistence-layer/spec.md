@@ -121,3 +121,4 @@ As a DevOps Engineer and Platform Admin, I want a migration runner CLI to execut
 - **SC-002**: Concurrency test verifies zero race conditions when claiming tickets concurrently.
 - **SC-003**: Drizzle migration runner successfully executes all SQL migrations against both Manager and Tenant databases.
 - **SC-004**: 100% test pass rate with unit and integration tests for all models, mappers, and repositories.
+

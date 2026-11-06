@@ -118,3 +118,4 @@
 | `score` | `integer` | NOT NULL | Score 1 to 5 |
 | `comment` | `text` | NULLABLE | Requester feedback text |
 | `created_at` | `timestamp with time zone` | NOT NULL, DEFAULT now() | Timestamp |
+

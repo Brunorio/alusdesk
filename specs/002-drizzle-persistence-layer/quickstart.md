@@ -28,3 +28,4 @@ To run manager and tenant migrations:
 npm run migrate:manager -w @alusdesk/core
 npm run migrate:tenants -w @alusdesk/core
 ```
+

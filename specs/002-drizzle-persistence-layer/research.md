@@ -45,3 +45,4 @@
 ### Decision 5: Migration Strategy
 - **Decision**: Maintain timestamped raw SQL files under `core/migrations/manager/` and `core/migrations/tenant/` using `drizzle-kit generate` or manual DDL scripts following `YYYYMMDDHHMMSS-<action>.sql`. Provide an automated migration runner in `core/src/database/migrator.ts` that applies pending migrations idempotently using a tracking table `__drizzle_migrations`.
 - **Rationale**: Satisfies the mandatory rule in `AGENTS.md` (1.4) while enabling easy automated provisioning of new tenant databases upon organization onboarding.
+
