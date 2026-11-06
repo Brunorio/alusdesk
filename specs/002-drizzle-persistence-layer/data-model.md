@@ -20,15 +20,11 @@
 | `created_at` | `timestamp with time zone` | NOT NULL, DEFAULT now() | Created timestamp |
 | `updated_at` | `timestamp with time zone` | NULLABLE | Updated timestamp |
 
----
-
-## 2. Tenant Database Schema (`core/src/database/schema/tenant.schema.ts`)
-
 ### `users`
 | Column | Type | Constraints | Description |
 |---|---|---|---|
 | `id` | `uuid` | PRIMARY KEY | User UUID |
-| `organization_id` | `uuid` | NOT NULL | Organization UUID (logical binding) |
+| `organization_id` | `uuid` | NOT NULL, REFERENCES organizations(id) | Organization UUID (logical binding) |
 | `name` | `varchar(255)` | NOT NULL | User full name |
 | `email` | `varchar(255)` | NOT NULL, UNIQUE | User email address |
 | `password_hash` | `varchar(255)` | NOT NULL | Password hash (bcrypt/argon2) |
@@ -36,6 +32,10 @@
 | `status` | `varchar(32)` | NOT NULL, DEFAULT 'OFFLINE' | Enum: `ONLINE`, `BUSY`, `AWAY`, `OFFLINE` |
 | `created_at` | `timestamp with time zone` | NOT NULL, DEFAULT now() | Created timestamp |
 | `updated_at` | `timestamp with time zone` | NULLABLE | Updated timestamp |
+
+---
+
+## 2. Tenant Database Schema (`core/src/database/schema/tenant.schema.ts`)
 
 ### `client_companies`
 | Column | Type | Constraints | Description |

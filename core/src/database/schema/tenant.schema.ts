@@ -9,18 +9,6 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-export const usersTable = pgTable('users', {
-  id: uuid('id').primaryKey(),
-  organizationId: uuid('organization_id').notNull(),
-  name: varchar('name', { length: 255 }).notNull(),
-  email: varchar('email', { length: 255 }).notNull().unique(),
-  passwordHash: varchar('password_hash', { length: 255 }).notNull(),
-  role: varchar('role', { length: 32 }).notNull(),
-  status: varchar('status', { length: 32 }).notNull().default('OFFLINE'),
-  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { withTimezone: true }),
-});
-
 export const clientCompaniesTable = pgTable('client_companies', {
   id: uuid('id').primaryKey(),
   organizationId: uuid('organization_id').notNull(),
@@ -70,7 +58,7 @@ export const ticketsTable = pgTable('tickets', {
   queueId: uuid('queue_id')
     .notNull()
     .references(() => queuesTable.id),
-  agentId: uuid('agent_id').references(() => usersTable.id),
+  agentId: uuid('agent_id'),
   status: varchar('status', { length: 32 }).notNull().default('WAITING_QUEUE'),
   activeChannel: varchar('active_channel', { length: 32 }).notNull().default('CHAT_ONLY'),
   enteredQueueAt: timestamp('entered_queue_at', { withTimezone: true }).notNull().defaultNow(),
@@ -106,17 +94,15 @@ export const ratingsTable = pgTable('ratings', {
   requesterId: uuid('requester_id')
     .notNull()
     .references(() => requestersTable.id),
-  agentId: uuid('agent_id').references(() => usersTable.id),
+  agentId: uuid('agent_id'),
   score: integer('score').notNull(),
   comment: text('comment'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
-export type UserRow = typeof usersTable.$inferSelect;
 export type ClientCompanyRow = typeof clientCompaniesTable.$inferSelect;
 export type RequesterRow = typeof requestersTable.$inferSelect;
 export type QueueRow = typeof queuesTable.$inferSelect;
 export type TicketRow = typeof ticketsTable.$inferSelect;
 export type MessageRow = typeof messagesTable.$inferSelect;
 export type RatingRow = typeof ratingsTable.$inferSelect;
-

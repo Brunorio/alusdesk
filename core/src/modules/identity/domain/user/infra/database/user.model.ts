@@ -2,7 +2,7 @@ import { and, asc, count, desc, eq, ilike } from 'drizzle-orm';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { SearchParams } from '../../../../../../repository/search-params';
 import { SearchResult } from '../../../../../../repository/search-result';
-import { usersTable } from '../../../../../../database/schema/tenant.schema';
+import { usersTable } from '../../../../../../database/schema/manager.schema';
 import { User, UserId } from '../../domain/user';
 import { IUserRepository } from '../../domain/user.repository';
 import { UserModelMapper } from './user-model.mapper';

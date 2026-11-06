@@ -12,6 +12,21 @@ export const organizationsTable = pgTable('organizations', {
   updatedAt: timestamp('updated_at', { withTimezone: true }),
 });
 
+export const usersTable = pgTable('users', {
+  id: uuid('id').primaryKey(),
+  organizationId: uuid('organization_id')
+    .notNull()
+    .references(() => organizationsTable.id),
+  name: varchar('name', { length: 255 }).notNull(),
+  email: varchar('email', { length: 255 }).notNull().unique(),
+  passwordHash: varchar('password_hash', { length: 255 }).notNull(),
+  role: varchar('role', { length: 32 }).notNull(),
+  status: varchar('status', { length: 32 }).notNull().default('OFFLINE'),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }),
+});
+
 export type OrganizationRow = typeof organizationsTable.$inferSelect;
 export type InsertOrganizationRow = typeof organizationsTable.$inferInsert;
-
+export type UserRow = typeof usersTable.$inferSelect;
+export type InsertUserRow = typeof usersTable.$inferInsert;

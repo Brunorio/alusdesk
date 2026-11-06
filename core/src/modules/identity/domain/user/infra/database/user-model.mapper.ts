@@ -1,5 +1,5 @@
 import { User, UserRole, UserStatus } from '../../domain/user';
-import { UserRow } from '../../../../../../database/schema/tenant.schema';
+import { UserRow } from '../../../../../../database/schema/manager.schema';
 
 export class UserModelMapper {
   static toEntity(row: UserRow): User {

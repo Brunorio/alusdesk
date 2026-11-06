@@ -1,17 +1,3 @@
-CREATE TABLE IF NOT EXISTS users (
-    id UUID PRIMARY KEY,
-    organization_id UUID NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
-    role VARCHAR(32) NOT NULL,
-    status VARCHAR(32) NOT NULL DEFAULT 'OFFLINE',
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ
-);
-
-CREATE INDEX IF NOT EXISTS idx_users_org_email ON users (organization_id, email);
-
 CREATE TABLE IF NOT EXISTS client_companies (
     id UUID PRIMARY KEY,
     organization_id UUID NOT NULL,
@@ -59,7 +45,7 @@ CREATE TABLE IF NOT EXISTS tickets (
     client_company_id UUID NOT NULL REFERENCES client_companies(id),
     requester_id UUID NOT NULL REFERENCES requesters(id),
     queue_id UUID NOT NULL REFERENCES queues(id),
-    agent_id UUID REFERENCES users(id),
+    agent_id UUID,
     status VARCHAR(32) NOT NULL DEFAULT 'WAITING_QUEUE',
     active_channel VARCHAR(32) NOT NULL DEFAULT 'CHAT_ONLY',
     entered_queue_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -93,11 +79,10 @@ CREATE TABLE IF NOT EXISTS ratings (
     id UUID PRIMARY KEY,
     ticket_id UUID NOT NULL UNIQUE REFERENCES tickets(id),
     requester_id UUID NOT NULL REFERENCES requesters(id),
-    agent_id UUID REFERENCES users(id),
+    agent_id UUID,
     score INTEGER NOT NULL,
     comment TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE INDEX IF NOT EXISTS idx_ratings_ticket ON ratings (ticket_id);
-
